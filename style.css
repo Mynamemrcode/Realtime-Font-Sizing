@@ -17,5 +17,5 @@ body {
     background:linear-gradient(45deg, cyan 0%, rgb(30, 199, 58) 100%);
 }
 canvas {
-background:white;
+background:grey;
 }
