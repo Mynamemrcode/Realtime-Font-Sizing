@@ -15,18 +15,28 @@ video.position(200,200);
 
 poser = ml5.poseNet(video, Load);
 
-poser.on('pose', Gotem());
+poser.on('pose', Gotem);
 }
 
-function draw() {
-}
+
 
 function Load() {
-    console.log("🪵loaded");
+    console.log("loaded");
 }
 
 function Gotem(results) {
     if(results.length >0) {
         console.log(results);
+
+        Lwrist = results[0].pose.leftWrist.x;
+        Rwrist = results[0].pose.rightWrist.x;
+        diifference = floor(Lwrist - Rwrist);
     }
+}
+
+function draw() {
+    background("grey");
+    textSize(diifference);
+    fill("#b8860b");
+    text('Ukelele', 30, 400)
 }
